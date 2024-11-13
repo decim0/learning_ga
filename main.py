@@ -101,8 +101,13 @@ if __name__ == "__main__":
     decrypted_message = cipher.decrypt(message)
     key = cipher.find_key(message)
 
-    print(f'Подобранный ключ: {key}')
-    print(f'Расшифрованное сообщение: {decrypted_message}')
+    print(f"Подобранный ключ: {key}")
+    print(f"Расшифрованное сообщение: {decrypted_message}")
 
     encrypted_message = cipher.encrypt(decrypted_message)
     print(encrypted_message)
+
+    file_path = input("Укажите путь к файлу для записи: ")
+    with open(file_path, "w") as file:
+        file.write(f"Подобранный ключ: {key}")
+        file.write(f"Расшифрованное сообщение: {decrypted_message}")
